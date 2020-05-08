@@ -53,10 +53,28 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCredit.Designer.cs">
+      <DependentUpon>NewCredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewDebitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewDebitor.Designer.cs">
+      <DependentUpon>NewDebitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCredit.resx">
+      <DependentUpon>NewCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDebitor.resx">
+      <DependentUpon>NewDebitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

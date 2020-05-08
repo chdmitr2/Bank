@@ -84,7 +84,6 @@
             this.dgvDebitors.Name = "dgvDebitors";
             this.dgvDebitors.Size = new System.Drawing.Size(384, 118);
             this.dgvDebitors.TabIndex = 0;
-            this.dgvDebitors.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDebitors_CellEnter);
             // 
             // gpbxDebitorDetails
             // 
@@ -253,8 +252,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // debitorToolStripMenuItem
             // 
@@ -267,8 +267,9 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // creditToolStripMenuItem
             // 
@@ -281,8 +282,9 @@
             // openNewCreditToolStripMenuItem
             // 
             this.openNewCreditToolStripMenuItem.Name = "openNewCreditToolStripMenuItem";
-            this.openNewCreditToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.openNewCreditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openNewCreditToolStripMenuItem.Text = "Open new credit";
+            this.openNewCreditToolStripMenuItem.Click += new System.EventHandler(this.openNewCreditToolStripMenuItem_Click);
             // 
             // paymentToolStripMenuItem
             // 
@@ -312,6 +314,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Bank Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.gpbxDebitors.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebitors)).EndInit();
             this.gpbxDebitorDetails.ResumeLayout(false);

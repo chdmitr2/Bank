@@ -48,5 +48,51 @@ namespace Bank
             //חשוב לרשום NULL בטבלה 
             dgvCredits.DataSource = dal.GetAllCreditsForDebitor(dgvDebitors.CurrentRow.Cells[0].Value.ToString());
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            dgvDebitors.CellEnter += new DataGridViewCellEventHandler(dgvDebitors_CellEnter);
+            dgvCredits.CellEnter += new DataGridViewCellEventHandler(dgvCredits_CellEnter);
+        }
+
+        private void dgvCredits_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            string creditorId = dgvCredits.CurrentRow.Cells[0].Value.ToString();
+            dgvPayments.DataSource = dal.GetAllPaymentsForCredit(creditorId);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           if(MessageBox.Show("Are you really want to exit?","Bank Manager",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            e.Cancel = false;
+            else
+            e.Cancel = true;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();//Application.Exit();
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewDebitor newDebitor = new NewDebitor();
+            if (newDebitor.ShowDialog() == DialogResult.OK)
+            {
+                dgvDebitors.DataSource = dal.GetAllDebitors();
+                MessageBox.Show("New Debitor saved successfully", "Bank Manager", MessageBoxButtons.OK);
+                
+            }
+            else
+                MessageBox.Show("New Debitor not saved!!!", "Bank Manager", MessageBoxButtons.OK);
+
+        }
+
+        private void openNewCreditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewCredit newCredit = new NewCredit();
+            newCredit.ShowDialog();
+
+        }
     }
 }
