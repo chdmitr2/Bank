@@ -39,7 +39,7 @@ namespace Bank
         }
 
         //Take from DB all credits
-        internal object GetAllCreditsForDebitor(string debitorID)
+        internal ArrayList  GetAllCreditsForDebitor(string debitorID)
         {
             ArrayList allCredits = new ArrayList();
             using (SqlConnection con = new SqlConnection(connectionString))//using - Dispose
@@ -98,7 +98,7 @@ namespace Bank
                 "([Id],[Name],[PostNumber],[PhoneNumber]) VALUES ('{0}','{1}','{2}','{3}')",
                 Id,Name,PostNumber,(PhoneNumber != String.Empty) ? PhoneNumber : null);
 
-            using (SqlConnection con = new SqlConnection(connectionString))//using - Dispose
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand com = new SqlCommand(query, con);
                 try
@@ -118,7 +118,36 @@ namespace Bank
             return flagResult;
         }
 
+        internal bool SaveNewPayment(Guid guid1, Guid guid2, decimal paymentAmount, DateTime value)
+        {
+            
+        }
 
+        //Create new Credit and save him in DB
+        public bool SaveNewCredit(Guid Id,Guid debitorId,int amount, int balance,DateTime openDate)
+        {
+            string query = String.Format("INSERT INTO Credits (Id,debitorId,Amount,Balance,OpenDate)" +
+                "VALUES ( '{0}','{1}','{2}','{3}','{4}')",Id, debitorId, amount, balance, openDate);
+            bool flagResult = false;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand com = new SqlCommand(query, con);
+                try
+                {
+                    con.Open();
+                    if (com.ExecuteNonQuery() == 1) ;
+                    flagResult = true;
+
+
+                }
+                catch(Exception)
+                {
+
+                }
+
+            }
+            return flagResult;
+        }
     }
 
 }

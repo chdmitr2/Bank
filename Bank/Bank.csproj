@@ -65,6 +65,12 @@
     <Compile Include="NewDebitor.Designer.cs">
       <DependentUpon>NewDebitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPayment.Designer.cs">
+      <DependentUpon>NewPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewDebitor.resx">
       <DependentUpon>NewDebitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPayment.resx">
+      <DependentUpon>NewPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

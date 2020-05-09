@@ -41,11 +41,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txbxCreditAmount = new System.Windows.Forms.TextBox();
             this.txbxCreditId = new System.Windows.Forms.TextBox();
+            this.lblMessageCreditAmount = new System.Windows.Forms.Label();
             this.gpbxDebitorDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbxDebitorDetails
             // 
+            this.gpbxDebitorDetails.Controls.Add(this.lblMessageCreditAmount);
             this.gpbxDebitorDetails.Controls.Add(this.label3);
             this.gpbxDebitorDetails.Controls.Add(this.dtpCreditOpenDate);
             this.gpbxDebitorDetails.Controls.Add(this.ltbxDebitorName);
@@ -73,7 +75,6 @@
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Date";
-           
             // 
             // dtpCreditOpenDate
             // 
@@ -84,19 +85,23 @@
             // 
             // ltbxDebitorName
             // 
+            this.ltbxDebitorName.DisplayMember = "Name";
             this.ltbxDebitorName.FormattingEnabled = true;
             this.ltbxDebitorName.Location = new System.Drawing.Point(334, 53);
             this.ltbxDebitorName.Name = "ltbxDebitorName";
             this.ltbxDebitorName.Size = new System.Drawing.Size(218, 82);
             this.ltbxDebitorName.TabIndex = 12;
+            this.ltbxDebitorName.ValueMember = "ID";
             // 
             // ltbxDebitorId
             // 
+            this.ltbxDebitorId.DisplayMember = "ID";
             this.ltbxDebitorId.FormattingEnabled = true;
             this.ltbxDebitorId.Location = new System.Drawing.Point(109, 53);
             this.ltbxDebitorId.Name = "ltbxDebitorId";
             this.ltbxDebitorId.Size = new System.Drawing.Size(210, 82);
             this.ltbxDebitorId.TabIndex = 11;
+            this.ltbxDebitorId.ValueMember = "ID";
             // 
             // label5
             // 
@@ -124,6 +129,7 @@
             this.btnSaveNewCredit.TabIndex = 8;
             this.btnSaveNewCredit.Text = "Open New Credit";
             this.btnSaveNewCredit.UseVisualStyleBackColor = true;
+            this.btnSaveNewCredit.Click += new System.EventHandler(this.btnSaveNewCredit_Click);
             // 
             // label4
             // 
@@ -156,9 +162,13 @@
             // 
             this.txbxCreditAmount.BackColor = System.Drawing.SystemColors.Info;
             this.txbxCreditAmount.Location = new System.Drawing.Point(109, 151);
+            this.txbxCreditAmount.MaxLength = 8;
             this.txbxCreditAmount.Name = "txbxCreditAmount";
-            this.txbxCreditAmount.Size = new System.Drawing.Size(443, 20);
+            this.txbxCreditAmount.Size = new System.Drawing.Size(259, 20);
             this.txbxCreditAmount.TabIndex = 3;
+            this.txbxCreditAmount.TextChanged += new System.EventHandler(this.txbxCreditAmount_TextChanged);
+            this.txbxCreditAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbxCreditAmount_KeyPress);
+            this.txbxCreditAmount.Leave += new System.EventHandler(this.txbxCreditAmount_Leave);
             // 
             // txbxCreditId
             // 
@@ -169,6 +179,14 @@
             this.txbxCreditId.Size = new System.Drawing.Size(443, 20);
             this.txbxCreditId.TabIndex = 0;
             // 
+            // lblMessageCreditAmount
+            // 
+            this.lblMessageCreditAmount.AutoSize = true;
+            this.lblMessageCreditAmount.Location = new System.Drawing.Point(385, 158);
+            this.lblMessageCreditAmount.Name = "lblMessageCreditAmount";
+            this.lblMessageCreditAmount.Size = new System.Drawing.Size(0, 13);
+            this.lblMessageCreditAmount.TabIndex = 15;
+            // 
             // NewCredit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,7 +195,6 @@
             this.Controls.Add(this.gpbxDebitorDetails);
             this.Name = "NewCredit";
             this.Text = "NewCredit";
-          
             this.gpbxDebitorDetails.ResumeLayout(false);
             this.gpbxDebitorDetails.PerformLayout();
             this.ResumeLayout(false);
@@ -199,5 +216,6 @@
         private System.Windows.Forms.TextBox txbxCreditAmount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpCreditOpenDate;
+        private System.Windows.Forms.Label lblMessageCreditAmount;
     }
 }

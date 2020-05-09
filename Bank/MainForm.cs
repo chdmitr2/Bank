@@ -91,8 +91,26 @@ namespace Bank
         private void openNewCreditToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewCredit newCredit = new NewCredit();
-            newCredit.ShowDialog();
+            if (newCredit.ShowDialog() == DialogResult.OK)
+            {
+                dgvCredits.DataSource = dal.GetAllCreditsForDebitor(dgvDebitors.CurrentRow.Cells["ID"].Value.ToString());
+                MessageBox.Show("New Credit saved successfully", "Bank Manager", MessageBoxButtons.OK);
+            }
+            else
+                MessageBox.Show("New Credit not saved!!!", "Bank Manager", MessageBoxButtons.OK);
 
         }
-    }
+
+        private void passNewPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewPayment newPayment = new NewPayment();
+            if (newPayment.ShowDialog() == DialogResult.OK)
+            {
+                dgvCredits.DataSource = dal.GetAllCreditsForDebitor(dgvDebitors.CurrentRow.Cells["ID"].Value.ToString());
+                MessageBox.Show("New Payment accepted", "Bank Manager", MessageBoxButtons.OK);
+            }
+            else
+                MessageBox.Show("New Payment not accepted!!!", "Bank Manager", MessageBoxButtons.OK);
+        }
+    } 
 }
