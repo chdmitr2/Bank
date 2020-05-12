@@ -118,10 +118,10 @@ namespace Bank
             return flagResult;
         }
 
-        internal bool SaveNewPayment(Guid guid1, Guid guid2, decimal paymentAmount, DateTime value)
-        {
+      //  internal bool SaveNewPayment(Guid guid1, Guid guid2, decimal paymentAmount, DateTime value)
+       // {
             
-        }
+       // }
 
         //Create new Credit and save him in DB
         public bool SaveNewCredit(Guid Id,Guid debitorId,int amount, int balance,DateTime openDate)
