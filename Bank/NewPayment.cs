@@ -120,7 +120,7 @@ namespace Bank
                 MessageBox.Show("Wrong Payment!!!");
                 return;
             }
-            if (dal.SaveNewPayment(new Guid(txbxPaymentAmount.Text.Trim()),
+            if (dal.SaveNewPayment(new Guid(txbxPaymentId.Text.Trim()),
                 new Guid(ltbxCreditId.SelectedValue.ToString()),
              paymentAmount, dtpPaymentPassDate.Value))
                 this.DialogResult = DialogResult.OK;

@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.Common;
+using System.Globalization;
+
 
 namespace Bank
 {
@@ -118,10 +120,43 @@ namespace Bank
             return flagResult;
         }
 
-      //  internal bool SaveNewPayment(Guid guid1, Guid guid2, decimal paymentAmount, DateTime value)
-       // {
-            
-       // }
+        internal bool SaveNewPayment(Guid Id , Guid CreditId, decimal PaymentAmount, DateTime DateTime)
+        {
+            bool flag = true;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlTransaction sqlTransact = con.BeginTransaction();
+                SqlCommand com = con.CreateCommand();
+                com.Transaction = sqlTransact;
+                try
+                {
+                    string PayAmount = PaymentAmount.ToString(CultureInfo.InvariantCulture.NumberFormat);
+                    string query = string.Format("INSERT INTO Payments (Id,CreditsId,Amount,PaymentDate) VALUES" +
+                       "('{0}','{1}','{2}','{3}')",Id,CreditId,PayAmount, DateTime);
+                    com.CommandText = query;
+                    com.ExecuteNonQuery();
+                    query = string.Format("UPDATE Credits SET Balance = (Balance - {0}) WHERE Id = '{1}'",PayAmount,CreditId);
+                    com.CommandText = query;
+                    com.ExecuteNonQuery();
+                    sqlTransact.Commit();
+
+
+                }
+                catch(Exception )
+                {
+                    sqlTransact.Rollback();
+                    flag = false;
+                }
+                finally
+                {
+                    if (con.State == System.Data.ConnectionState.Open)
+                        con.Dispose();
+                }
+
+            }
+            return flag;
+        }
 
         //Create new Credit and save him in DB
         public bool SaveNewCredit(Guid Id,Guid debitorId,int amount, int balance,DateTime openDate)

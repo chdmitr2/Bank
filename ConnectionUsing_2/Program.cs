@@ -23,7 +23,7 @@ namespace ConnectionUsing_2
 
         static void Main(string[] args)
         {
-            string conStr = @"Data Source=DESKTOP-JL06NCI\SQLEXPRESS;;DataBase=Bank2020; Integrated Security=True";
+            string conStr = @"Data Source=DESKTOP-JL06NCI\SQLEXPRESS; DataBase=Bank2020; Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(conStr))
 
