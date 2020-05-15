@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Config_4", "App.Config_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProviderFactory_5", "DataProviderFactory_5\DataProviderFactory_5.csproj", "{8BBD854E-5640-48A7-AA18-D4011E7664EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScalarCommand_6", "ScalarCommand_6\ScalarCommand_6.csproj", "{EE9A46BD-97F8-46B0-A177-2D5FEF53D744}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{8BBD854E-5640-48A7-AA18-D4011E7664EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BBD854E-5640-48A7-AA18-D4011E7664EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BBD854E-5640-48A7-AA18-D4011E7664EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9A46BD-97F8-46B0-A177-2D5FEF53D744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9A46BD-97F8-46B0-A177-2D5FEF53D744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9A46BD-97F8-46B0-A177-2D5FEF53D744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9A46BD-97F8-46B0-A177-2D5FEF53D744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{80272AC0-9DC6-419F-9625-3D01D82CF62F} = {10EB82BB-2DE3-4310-A208-8DE4AD1E6898}
 		{1C2ABA56-B544-4EE2-BC00-6BD855BE4D2A} = {10EB82BB-2DE3-4310-A208-8DE4AD1E6898}
 		{8BBD854E-5640-48A7-AA18-D4011E7664EC} = {10EB82BB-2DE3-4310-A208-8DE4AD1E6898}
+		{EE9A46BD-97F8-46B0-A177-2D5FEF53D744} = {10EB82BB-2DE3-4310-A208-8DE4AD1E6898}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF670A5D-6867-4B87-B8EE-47E423B25EEB}

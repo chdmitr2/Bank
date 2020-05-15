@@ -246,13 +246,14 @@
             // saveDataToCSVToolStripMenuItem
             // 
             this.saveDataToCSVToolStripMenuItem.Name = "saveDataToCSVToolStripMenuItem";
-            this.saveDataToCSVToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.saveDataToCSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveDataToCSVToolStripMenuItem.Text = "Save data to CSV";
+            this.saveDataToCSVToolStripMenuItem.Click += new System.EventHandler(this.saveDataToCSVToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -297,7 +298,7 @@
             // passNewPaymentToolStripMenuItem
             // 
             this.passNewPaymentToolStripMenuItem.Name = "passNewPaymentToolStripMenuItem";
-            this.passNewPaymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.passNewPaymentToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.passNewPaymentToolStripMenuItem.Text = "Pass new payment";
             this.passNewPaymentToolStripMenuItem.Click += new System.EventHandler(this.passNewPaymentToolStripMenuItem_Click);
             // 

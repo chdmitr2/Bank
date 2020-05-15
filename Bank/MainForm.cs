@@ -112,5 +112,15 @@ namespace Bank
             else
                 MessageBox.Show("New Payment not accepted!!!", "Bank Manager", MessageBoxButtons.OK);
         }
+
+        private void saveDataToCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dal.SaveDBToLocalFile())
+                MessageBox.Show("All data saved successfully in local files","Bank Manager",
+                    MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+            else
+                MessageBox.Show("All data not saved  in local files!!!", "Bank Manager",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error , MessageBoxDefaultButton.Button1);
+        } 
     } 
 }
