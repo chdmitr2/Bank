@@ -132,7 +132,7 @@ namespace Bank
                 try
                 {
                     string PayAmount = PaymentAmount.ToString(CultureInfo.InvariantCulture.NumberFormat);
-                    string query = string.Format("INSERT INTO Payments (Id,CreditsId,Amount,PaymentDate) VALUES" +
+                    string query = string.Format("INSERT INTO Payments (Id,CreditsID,Amount,PaymantDate) VALUES" +
                        "('{0}','{1}','{2}','{3}')",Id,CreditId,PayAmount, DateTime);
                     com.CommandText = query;
                     com.ExecuteNonQuery();
