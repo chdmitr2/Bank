@@ -161,13 +161,15 @@ namespace Bank
         internal bool SaveDBToLocalFile()
         {
             bool result = true;
-            StreamWriter file = new StreamWriter(new FileStream("Debitors.csv", FileMode.Create), Encoding.GetEncoding(1251));
+            StreamWriter file;
+            
             string query;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
               
                 try
                 {
+                    file = new StreamWriter(new FileStream("Debitors.csv", FileMode.Create), Encoding.GetEncoding(1251) ); 
                     query = "SELECT * FROM Debitors";
                     SqlCommand com = new SqlCommand(query, con);
                     con.Open();
@@ -178,9 +180,10 @@ namespace Bank
                     {
                         while(reader.Read())
                         {
-                            file.WriteLine(@"""" + reader.GetValue(0).ToString() + @""";""" +
-                                reader.GetString(1) + @""";""" + reader [2].ToString () + @""";""" +
-                                reader[3].ToString() + @"""",Encoding.ASCII );
+                            file.WriteLine(@"""" + reader[0].ToString() + @""";""" +
+                               reader[1].ToString() + @""";""" +
+                               reader[2].ToString() + @""";""" +
+                               reader[3].ToString() + @"""", Encoding.ASCII);
                         }
                     }
 
@@ -198,6 +201,94 @@ namespace Bank
                 catch (Exception)
                 {
                     result = false;
+                    return result;
+                }
+
+            }
+           
+      
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                try
+                {
+                    file = new StreamWriter(new FileStream("Credits.csv", FileMode.Create), Encoding.GetEncoding(1251));
+                    query = "SELECT * FROM Credits";
+                    SqlCommand com = new SqlCommand(query, con);
+                    con.Open();
+                    SqlDataReader reader = com.ExecuteReader();
+                    file.WriteLine("Start of file");
+                    file.WriteLine(@"""Id"";""DebitorID"";""Amount"";""Balance"";""OpenDate""");
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            file.WriteLine(@"""" + reader[0].ToString() + @""";""" +
+                                reader[1].ToString() + @""";""" + 
+                                reader[2].ToString() + @""";""" +
+                                reader[3].ToString() + @""";""" +
+                                reader[4].ToString() + @"""", Encoding.ASCII);
+                        }
+                    }
+
+                    else
+                    {
+                        file.WriteLine("No one row to save");
+                    }
+
+                    file.WriteLine("End of file");
+                    result = true;
+
+                    file.Dispose();
+
+                }
+                catch (Exception)
+                {
+                    result = false;
+                    return result;
+                }
+
+            }
+           
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                try
+                {
+                    file = new StreamWriter(new FileStream("Payments.csv", FileMode.Create), Encoding.GetEncoding(1251));
+                    query = "SELECT * FROM Payments";
+                    SqlCommand com = new SqlCommand(query, con);
+                    con.Open();
+                    SqlDataReader reader = com.ExecuteReader();
+                    file.WriteLine("Start of file");
+                    file.WriteLine(@"""Id"";""CreditsID"";""Amount"";""PaymentDate""");
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            file.WriteLine(@"""" + reader[0].ToString() + @""";""" +
+                                reader[1].ToString() + @""";""" +
+                                reader[2].ToString() + @""";""" +
+                                reader[3].ToString() + @"""", Encoding.ASCII);
+                        }
+                    }
+
+                    else
+                    {
+                        file.WriteLine("No one row to save");
+                    }
+
+                    file.WriteLine("End of file");
+                    result = true;
+
+                    file.Dispose();
+
+                }
+                catch (Exception)
+                {
+                    result = false;
+                    return result;
                 }
 
             }
@@ -205,15 +296,49 @@ namespace Bank
 
         }
 
-        //Create new Credit and save him in  
-        public bool SaveNewCredit(Guid Id,Guid debitorId,int amount, int balance,DateTime openDate)
+        //Create new Credit and save him in DB 
+        public bool SaveNewCredit(Guid Id,Guid DebitorID,int Amount, int Balance,DateTime OpenDate)
         {
-            string query = String.Format("INSERT INTO Credits (Id,debitorId,Amount,Balance,OpenDate)" +
-                "VALUES ( '{0}','{1}','{2}','{3}','{4}')",Id, debitorId, amount, balance, openDate);
+            string query = String.Format("INSERT INTO Credits (Id,DebitorID,Amount,Balance,OpenDate)" +
+                "VALUES ( @Id,@DebitorID,@Amount,@Balance,@OpenDate)");
             bool flagResult = false;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand com = new SqlCommand(query, con);
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@Id";
+                param.Value = Id;
+                param.SqlDbType = System.Data.SqlDbType.UniqueIdentifier;
+                com.Parameters.Add(param);
+
+                param = new SqlParameter();
+                param.ParameterName = "@DebitorID";
+                param.Value = DebitorID;
+                param.SqlDbType = System.Data.SqlDbType.UniqueIdentifier;
+                com.Parameters.Add(param);
+
+                param = new SqlParameter();
+                param.ParameterName = "@Amount";
+                param.Value = Amount;
+                param.SqlDbType = System.Data.SqlDbType.Money;
+                com.Parameters.Add(param);
+
+                param = new SqlParameter();
+                param.ParameterName = "@Balance";
+                param.Value = Balance;
+                param.SqlDbType = System.Data.SqlDbType.Money;
+                com.Parameters.Add(param);
+
+                param = new SqlParameter();
+                param.ParameterName = "@OpenDate";
+                param.Value = OpenDate;
+                param.SqlDbType = System.Data.SqlDbType.DateTime ;
+                com.Parameters.Add(param);
+
+
+
+
+
                 try
                 {
                     con.Open();
