@@ -121,6 +121,13 @@ namespace Bank
             else
                 MessageBox.Show("All data not saved  in local files!!!", "Bank Manager",
                     MessageBoxButtons.OK, MessageBoxIcon.Error , MessageBoxDefaultButton.Button1);
-        } 
+        }
+
+        private void dgvDebitors_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            object HeadValue = ((DataGridView)sender).Rows[e.RowIndex].HeaderCell.Value;
+            if (HeadValue == null || !HeadValue.Equals((e.RowIndex + 1).ToString()))
+                ((DataGridView)sender).Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
+        }
     } 
 }

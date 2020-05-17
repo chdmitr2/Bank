@@ -84,6 +84,7 @@
             this.dgvDebitors.Name = "dgvDebitors";
             this.dgvDebitors.Size = new System.Drawing.Size(384, 118);
             this.dgvDebitors.TabIndex = 0;
+            this.dgvDebitors.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvDebitors_RowPrePaint);
             // 
             // gpbxDebitorDetails
             // 
@@ -192,6 +193,7 @@
             this.dgvCredits.Name = "dgvCredits";
             this.dgvCredits.Size = new System.Drawing.Size(957, 136);
             this.dgvCredits.TabIndex = 1;
+            this.dgvCredits.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvDebitors_RowPrePaint);
             // 
             // gpbxPayments
             // 
@@ -211,6 +213,7 @@
             this.dgvPayments.Name = "dgvPayments";
             this.dgvPayments.Size = new System.Drawing.Size(957, 137);
             this.dgvPayments.TabIndex = 1;
+            this.dgvPayments.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvDebitors_RowPrePaint);
             // 
             // grbxSearch
             // 
@@ -246,14 +249,14 @@
             // saveDataToCSVToolStripMenuItem
             // 
             this.saveDataToCSVToolStripMenuItem.Name = "saveDataToCSVToolStripMenuItem";
-            this.saveDataToCSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveDataToCSVToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.saveDataToCSVToolStripMenuItem.Text = "Save data to CSV";
             this.saveDataToCSVToolStripMenuItem.Click += new System.EventHandler(this.saveDataToCSVToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

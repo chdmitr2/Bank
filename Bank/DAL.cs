@@ -42,13 +42,22 @@ namespace Bank
         }
 
         //Take from DB all credits
-        internal ArrayList  GetAllCreditsForDebitor(string debitorID)
+        internal ArrayList  GetAllCreditsForDebitor(string DebitorID)
         {
             ArrayList allCredits = new ArrayList();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = String.Format("SELECT * FROM Credits Where DebitorID = '{0}' Order By OpenDate", debitorID);
-                SqlCommand com = new SqlCommand(query, con);
+                
+                SqlCommand com = new SqlCommand("[dbo].[Procedure]",con);
+                com.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@DebitorID";
+                param.Value = new Guid(DebitorID);
+                param.SqlDbType = System.Data.SqlDbType.UniqueIdentifier;
+                param.Direction = System.Data.ParameterDirection.Input;
+                com.Parameters.Add(param);
+
+
                 try
                 {
                     con.Open();
