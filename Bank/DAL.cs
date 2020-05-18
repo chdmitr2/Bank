@@ -41,6 +41,57 @@ namespace Bank
             return allDebitors;
         }
 
+        //Searching Debitor
+       internal ArrayList SearchDebitors(string DebName,string DebPostNumber,string DebPhoneNumber)
+        {
+            ArrayList SearchedDebitors = new ArrayList();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                SqlCommand com = new SqlCommand("[dbo].[SearchDebitor]", con);
+                com.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@DebName";
+                param.Value = DebName;
+                param.SqlDbType = System.Data.SqlDbType.NVarChar;
+                param.Direction = System.Data.ParameterDirection.Input;
+                com.Parameters.Add(param);
+
+               
+                param = new SqlParameter();
+                param.ParameterName = "@DebPostNumber";
+                param.Value = DebPostNumber;
+                param.SqlDbType = System.Data.SqlDbType.NVarChar;
+                param.Direction = System.Data.ParameterDirection.Input;
+                com.Parameters.Add(param);
+
+                
+                param = new SqlParameter();
+                param.ParameterName = "@DebPhoneNumber";
+                param.Value = DebPhoneNumber;
+                param.SqlDbType = System.Data.SqlDbType.NVarChar;
+                param.Direction = System.Data.ParameterDirection.Input;
+                com.Parameters.Add(param);
+
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader dr = com.ExecuteReader();
+                    if (dr.HasRows)
+                        foreach (DbDataRecord result in dr)
+                            SearchedDebitors.Add(result);
+                }
+                catch
+                {
+
+                }
+
+            }
+            return SearchedDebitors;
+        }
+    
+
         //Take from DB all credits
         internal ArrayList  GetAllCreditsForDebitor(string DebitorID)
         {
@@ -166,7 +217,7 @@ namespace Bank
             }
             return flag;
         }
-
+        //Save File csv
         internal bool SaveDBToLocalFile()
         {
             bool result = true;

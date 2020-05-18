@@ -14,10 +14,11 @@ namespace Bank
     public partial class MainForm : Form
     {
         DAL dal = new DAL();
+        ArrayList allDebitors;
         public MainForm()
         {
             InitializeComponent();
-            ArrayList allDebitors = dal.GetAllDebitors();
+             allDebitors = dal.GetAllDebitors();
             dgvDebitors.DataSource = allDebitors;
             SettingsDGVDebitors();
         }
@@ -79,7 +80,9 @@ namespace Bank
             NewDebitor newDebitor = new NewDebitor();
             if (newDebitor.ShowDialog() == DialogResult.OK)
             {
-                dgvDebitors.DataSource = dal.GetAllDebitors();
+                allDebitors.Clear();
+                allDebitors = dal.GetAllDebitors();
+                dgvDebitors.DataSource = allDebitors;
                 MessageBox.Show("New Debitor saved successfully", "Bank Manager", MessageBoxButtons.OK);
                 
             }
@@ -128,6 +131,67 @@ namespace Bank
             object HeadValue = ((DataGridView)sender).Rows[e.RowIndex].HeaderCell.Value;
             if (HeadValue == null || !HeadValue.Equals((e.RowIndex + 1).ToString()))
                 ((DataGridView)sender).Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
+        }
+
+        List<DataGridViewRow> searchedRows;
+        int currentRow;
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            searchedRows = new List<DataGridViewRow>();
+            string DebName = txbxSearchedDebName.Text.Trim();
+            string DebPostNumber = txbxSearchedDebPostNumber.Text.Trim();
+            string DebPhoneNumber = txbxSearchedDebPhoneNumber.Text.Trim();
+
+            if(!chbxDB .Checked )
+            { 
+                foreach (DataGridViewRow row in dgvDebitors.Rows)
+                { 
+                   if (row.Cells["Name"].FormattedValue.ToString().Contains(DebName) &&
+                        row.Cells["PostNumber"].FormattedValue.ToString().Contains(DebPostNumber) &&
+                          row.Cells["PhoneNumber"].FormattedValue.ToString().Contains(DebPhoneNumber))
+                   {
+                     searchedRows.Add(row);
+                   }
+                    
+                }
+                if (searchedRows.Count == 0)
+                {
+                    MessageBox.Show("No find results");
+                    btnNextRow.Enabled = false;
+                    return;
+                }
+                MessageBox.Show("Find " + searchedRows.Count + " results");
+                btnNextRow.Enabled = true;
+                currentRow = -1;
+                btnNextRow_Click(null, null);
+            }
+            else
+            {
+                btnNextRow.Enabled = false;
+               ArrayList SearchedDebitors = dal.SearchDebitors(DebName ,DebPostNumber ,DebPhoneNumber);
+                if (SearchedDebitors == null || SearchedDebitors.Count == 0)
+                {
+                    MessageBox.Show("No Results");
+                    return;
+                }
+                MessageBox.Show("Find " + SearchedDebitors.Count  +" results");
+                dgvDebitors.DataSource = SearchedDebitors;
+            }
+            
+        }
+
+        private void btnNextRow_Click(object sender, EventArgs e)
+        {
+            if (currentRow == searchedRows.Count - 1)
+            { 
+                currentRow = 0;
+            }
+            else
+            {
+                currentRow++;
+            }
+            dgvDebitors.CurrentCell = searchedRows[currentRow].Cells[1];
+
         }
     } 
 }
