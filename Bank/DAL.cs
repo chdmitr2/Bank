@@ -91,7 +91,6 @@ namespace Bank
             return SearchedDebitors;
         }
     
-
         //Take from DB all credits
         internal ArrayList  GetAllCreditsForDebitor(string DebitorID)
         {
@@ -394,10 +393,6 @@ namespace Bank
                 param.Value = OpenDate;
                 param.SqlDbType = System.Data.SqlDbType.DateTime ;
                 com.Parameters.Add(param);
-
-
-
-
 
                 try
                 {

@@ -45,6 +45,15 @@
             this.gpbxPayments = new System.Windows.Forms.GroupBox();
             this.dgvPayments = new System.Windows.Forms.DataGridView();
             this.grbxSearch = new System.Windows.Forms.GroupBox();
+            this.chbxDB = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnNextRow = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txbxSearchedDebPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txbxSearchedDebPostNumber = new System.Windows.Forms.TextBox();
+            this.txbxSearchedDebName = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveDataToCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,16 +64,7 @@
             this.openNewCreditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passNewPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txbxSearchedDebName = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txbxSearchedDebPostNumber = new System.Windows.Forms.TextBox();
-            this.txbxSearchedDebPhoneNumber = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnNextRow = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.chbxDB = new System.Windows.Forms.CheckBox();
             this.gpbxDebitors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebitors)).BeginInit();
             this.gpbxDebitorDetails.SuspendLayout();
@@ -199,8 +199,10 @@
             // 
             // dgvCredits
             // 
+            this.dgvCredits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCredits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCredits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCredits.Location = new System.Drawing.Point(3, 16);
             this.dgvCredits.Name = "dgvCredits";
             this.dgvCredits.Size = new System.Drawing.Size(957, 136);
@@ -244,6 +246,84 @@
             this.grbxSearch.TabIndex = 2;
             this.grbxSearch.TabStop = false;
             this.grbxSearch.Text = "Search";
+            // 
+            // chbxDB
+            // 
+            this.chbxDB.AutoSize = true;
+            this.chbxDB.Location = new System.Drawing.Point(783, 19);
+            this.chbxDB.Name = "chbxDB";
+            this.chbxDB.Size = new System.Drawing.Size(89, 17);
+            this.chbxDB.TabIndex = 8;
+            this.chbxDB.Text = "Search in DB";
+            this.chbxDB.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(529, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Phone Number";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(272, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Post Number";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Debitor Name";
+            // 
+            // btnNextRow
+            // 
+            this.btnNextRow.Location = new System.Drawing.Point(874, 48);
+            this.btnNextRow.Name = "btnNextRow";
+            this.btnNextRow.Size = new System.Drawing.Size(75, 23);
+            this.btnNextRow.TabIndex = 4;
+            this.btnNextRow.Text = "Next";
+            this.btnNextRow.UseVisualStyleBackColor = true;
+            this.btnNextRow.Click += new System.EventHandler(this.btnNextRow_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(783, 48);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txbxSearchedDebPhoneNumber
+            // 
+            this.txbxSearchedDebPhoneNumber.Location = new System.Drawing.Point(532, 51);
+            this.txbxSearchedDebPhoneNumber.Name = "txbxSearchedDebPhoneNumber";
+            this.txbxSearchedDebPhoneNumber.Size = new System.Drawing.Size(234, 20);
+            this.txbxSearchedDebPhoneNumber.TabIndex = 2;
+            // 
+            // txbxSearchedDebPostNumber
+            // 
+            this.txbxSearchedDebPostNumber.Location = new System.Drawing.Point(275, 51);
+            this.txbxSearchedDebPostNumber.Name = "txbxSearchedDebPostNumber";
+            this.txbxSearchedDebPostNumber.Size = new System.Drawing.Size(251, 20);
+            this.txbxSearchedDebPostNumber.TabIndex = 1;
+            // 
+            // txbxSearchedDebName
+            // 
+            this.txbxSearchedDebName.Location = new System.Drawing.Point(10, 51);
+            this.txbxSearchedDebName.Name = "txbxSearchedDebName";
+            this.txbxSearchedDebName.Size = new System.Drawing.Size(259, 20);
+            this.txbxSearchedDebName.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -322,92 +402,14 @@
             // passNewPaymentToolStripMenuItem
             // 
             this.passNewPaymentToolStripMenuItem.Name = "passNewPaymentToolStripMenuItem";
-            this.passNewPaymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.passNewPaymentToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.passNewPaymentToolStripMenuItem.Text = "Pass new payment";
             this.passNewPaymentToolStripMenuItem.Click += new System.EventHandler(this.passNewPaymentToolStripMenuItem_Click);
-            // 
-            // txbxSearchedDebName
-            // 
-            this.txbxSearchedDebName.Location = new System.Drawing.Point(10, 51);
-            this.txbxSearchedDebName.Name = "txbxSearchedDebName";
-            this.txbxSearchedDebName.Size = new System.Drawing.Size(259, 20);
-            this.txbxSearchedDebName.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // txbxSearchedDebPostNumber
-            // 
-            this.txbxSearchedDebPostNumber.Location = new System.Drawing.Point(275, 51);
-            this.txbxSearchedDebPostNumber.Name = "txbxSearchedDebPostNumber";
-            this.txbxSearchedDebPostNumber.Size = new System.Drawing.Size(251, 20);
-            this.txbxSearchedDebPostNumber.TabIndex = 1;
-            // 
-            // txbxSearchedDebPhoneNumber
-            // 
-            this.txbxSearchedDebPhoneNumber.Location = new System.Drawing.Point(532, 51);
-            this.txbxSearchedDebPhoneNumber.Name = "txbxSearchedDebPhoneNumber";
-            this.txbxSearchedDebPhoneNumber.Size = new System.Drawing.Size(234, 20);
-            this.txbxSearchedDebPhoneNumber.TabIndex = 2;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(783, 48);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnNextRow
-            // 
-            this.btnNextRow.Location = new System.Drawing.Point(874, 48);
-            this.btnNextRow.Name = "btnNextRow";
-            this.btnNextRow.Size = new System.Drawing.Size(75, 23);
-            this.btnNextRow.TabIndex = 4;
-            this.btnNextRow.Text = "Next";
-            this.btnNextRow.UseVisualStyleBackColor = true;
-            this.btnNextRow.Click += new System.EventHandler(this.btnNextRow_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Debitor Name";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(272, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Post Number";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(529, 26);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Phone Number";
-            // 
-            // chbxDB
-            // 
-            this.chbxDB.AutoSize = true;
-            this.chbxDB.Location = new System.Drawing.Point(783, 19);
-            this.chbxDB.Name = "chbxDB";
-            this.chbxDB.Size = new System.Drawing.Size(89, 17);
-            this.chbxDB.TabIndex = 8;
-            this.chbxDB.Text = "Search in DB";
-            this.chbxDB.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
