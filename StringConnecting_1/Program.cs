@@ -9,8 +9,8 @@ namespace StringConnecting_1
         {
             string conStr = @"Data Source=DESKTOP-JL06NCI\SQLEXPRESS; Initial Catalog=Bank2020; Integrated Security=True";
             //string conStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bank2020; Integrated Security=True";              
-            // string conStr = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=ShopDB; Integrated Security=True"; 
-            // string conStr = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=ShopDB; Integrated Security=True"; 
+            // string conStr = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=Bank2020; Integrated Security=True"; 
+            // string conStr = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Bank2020; Integrated Security=True"; 
 
             SqlConnection connection = new SqlConnection(conStr);
 

@@ -7,7 +7,7 @@ namespace Pooling_3
     {
         static void Main(string[] args)
         {
-            string conStr = @"Data Source=DESKTOP-JL06NCI\SQLEXPRESS;Initial Catalog=Bank2020; Integrated Security=true; Pooling = false"; 
+            string conStr = @"Data Source=DESKTOP-JL06NCI\SQLEXPRESS;Initial Catalog=Bank2020; Integrated Security=true; Pooling=true"; 
 
             DateTime start = DateTime.Now;
 

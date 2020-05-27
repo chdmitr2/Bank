@@ -26,7 +26,6 @@ namespace ConnectionUsing_2
             string conStr = @"Data Source=DESKTOP-JL06NCI\SQLEXPRESS; DataBase=Bank2020; Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(conStr))
-
             {
                 connection.StateChange += connection_StateChange;
 
