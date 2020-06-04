@@ -16,9 +16,7 @@ namespace App.Config_4
             var setting = new ConnectionStringSettings
             {
                 Name = "MyConnectionString1",     
-                ConnectionString = @"Data Source=DESKTOP-JL06NCI\SQLEXPRESS;
-                                     Initial Catalog=Bank2020;
-                                     Integrated Security=True;"
+                ConnectionString = @"Data Source=DESKTOP-JL06NCI\SQLEXPRESS; Initial Catalog=Bank2020; Integrated Security=True"
             };
 
             Configuration config;  

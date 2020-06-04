@@ -16,7 +16,7 @@ namespace Dirty_Read_12
             SqlConnection connection = new SqlConnection(conStr);
 
             SqlCommand cmd = new SqlCommand("UPDATE Debitors SET PhoneNumber = 'TEST' WHERE Name = 'Dima'", connection);
-            //cmd = new SqlCommand("UPDATE Debitors SET PhoneNumber = '0555456654' WHERE Name = 'Dima'", connection);
+           // cmd = new SqlCommand("UPDATE Debitors SET PhoneNumber = '0555456654' WHERE Name = 'Dima'", connection);
 
             Console.WriteLine("Step 1. Press any key to execute command...");
             Console.ReadKey();

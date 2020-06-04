@@ -32,6 +32,7 @@ namespace Transaction_11
                 cmd.Transaction.Rollback();
                 Console.WriteLine("Transaction rollback");
             }
+            Console.ReadLine();
         }
     }
 }

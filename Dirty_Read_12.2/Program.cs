@@ -18,11 +18,11 @@ namespace Dirty_Read_12._2
 
             SqlCommand cmd = new SqlCommand("SELECT Name, PhoneNumber FROM Debitors", connection);
 
-            Console.WriteLine("Step 2. Press any key to read Customers");
+            Console.WriteLine("Step 2. Press any key to read Debitors");
             Console.ReadKey();
 
             connection.Open();
-            cmd.Transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted);
+            cmd.Transaction = connection.BeginTransaction(IsolationLevel.ReadUncommitted);//ReadCommitted  ReadUncommitted
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())

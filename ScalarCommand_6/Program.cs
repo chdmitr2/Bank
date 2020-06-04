@@ -18,7 +18,7 @@ namespace ScalarCommand_6
 
             SqlCommand cmd = new SqlCommand("SELECT PhoneNumber FROM Debitors WHERE Name = 'Dima'", connection); 
 
-            string phoneNumber = (string)cmd.ExecuteScalar(); 
+            var phoneNumber = cmd.ExecuteScalar(); 
 
             Console.WriteLine(phoneNumber);
             Console.ReadLine();

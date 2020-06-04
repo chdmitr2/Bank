@@ -23,7 +23,7 @@ namespace Bank
             ArrayList allDebitors = new ArrayList();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT * FROM Debitors Order By Name Desc", con);
+                SqlCommand com = new SqlCommand("SELECT * FROM Debitors Order By Name Asc", con);
                 try
                 {
                     con.Open();

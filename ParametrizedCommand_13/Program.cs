@@ -15,10 +15,10 @@ namespace ParametrizedCommand_13
 
             Console.WriteLine("Enter PostNumber of Debitor please : ");
 
-            var customerNo = Console.ReadLine();
+            var DebPostNum = Console.ReadLine();
 
           
-            string commandStr = string.Format("SELECT * FROM Debitors WHERE PostNumber = {0};", customerNo); 
+            string commandStr = string.Format("SELECT * FROM Debitors WHERE PostNumber = {0};", DebPostNum); 
 
             using (SqlConnection connection = new SqlConnection(conStr)) 
             {
